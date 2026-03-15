@@ -38,3 +38,7 @@ English, Arabic, Bengali, Burmese, Chinese, Czech, Dutch, French, German, Gujara
 ## Model Credit
 
 Based on [tencent/HY-MT1.5-1.8B-FP8](https://huggingface.co/tencent/HY-MT1.5-1.8B-FP8).
+
+Support me on PayPal
+--------------------
+[![Donate](https://img.shields.io/badge/Support-PayPal-blue.svg)](https://paypal.me/mohammadmoustafa1)
