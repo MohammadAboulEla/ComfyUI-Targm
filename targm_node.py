@@ -92,7 +92,8 @@ class Targm:
             "required": {
                 "text": ("STRING", {"multiline": True, "default": ""}),
                 "target_language": (SUPPORTED_LANGUAGES, {"default": "English"}),
-                "seed": ("INT", {"default": 0, "min": 0, "max": 0xFFFFF}),
+                "keep_model_loaded": ("BOOLEAN", {"default": False, "tooltip": "Keep the model in VRAM after inference. Disable to free memory."}),
+                "seed": ("INT", {"default": 0, "min": 0, "max": 0xFFFF}),
             },
             "hidden": {
                 "max_new_tokens": (
@@ -108,7 +109,8 @@ class Targm:
     CATEGORY = "Targm"
 
     def translate(
-        self, text: str, target_language: str = "English", seed: int = 0, max_new_tokens: int = 2048
+        self, text: str, target_language: str = "English", seed: int = 0,
+        keep_model_loaded: bool = True, max_new_tokens: int = 2048
     ):
         torch.manual_seed(seed)  # reproducible output
         model, tokenizer = load_model()
@@ -142,6 +144,12 @@ class Targm:
             outputs[0][input_length:],
             skip_special_tokens=True,
         )
+
+        if not keep_model_loaded:
+            global _model, _tokenizer
+            _model = None
+            _tokenizer = None
+            torch.cuda.empty_cache()
 
         return (translated,)
 
