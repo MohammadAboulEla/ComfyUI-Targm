@@ -80,7 +80,7 @@ def load_model():
     _model = AutoModelForCausalLM.from_pretrained(
         model_dir,
         device_map="auto",
-        torch_dtype=torch.bfloat16,  # recommended for performance
+        dtype=torch.bfloat16,  # recommended for performance
     )
     return _model, _tokenizer
 
@@ -92,7 +92,7 @@ class Targm:
             "required": {
                 "text": ("STRING", {"multiline": True, "default": ""}),
                 "target_language": (SUPPORTED_LANGUAGES, {"default": "English"}),
-                "seed": ("INT", {"default": 0, "min": 0, "max": 0xFFFFFFFFFFFFFFFF}),
+                "seed": ("INT", {"default": 0, "min": 0, "max": 0xFFFFF}),
             },
             "hidden": {
                 "max_new_tokens": (
@@ -151,5 +151,5 @@ NODE_CLASS_MAPPINGS = {
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "TARGM": "Targm",
+    "TARGM": "Translate",
 }

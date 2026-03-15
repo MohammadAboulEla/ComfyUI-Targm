@@ -15,6 +15,7 @@ A ComfyUI custom node for high-quality text translation using Tencent's **HY-MT1
 
 English, Arabic, Bengali, Burmese, Chinese, Czech, Dutch, French, German, Gujarati, Hebrew, Hindi, Indonesian, Italian, Japanese, Kazakh, Khmer, Korean, Malay, Marathi, Mongolian, Persian, Polish, Portuguese, Russian, Spanish, Tagalog, Tamil, Telugu, Thai, Tibetan, Turkish, Ukrainian, Urdu, Uyghur, Vietnamese.
 
+
 ## Installation
 
 1. Head to `ComfyUI/custom_nodes` directory and clone this repository
@@ -25,6 +26,9 @@ English, Arabic, Bengali, Burmese, Chinese, Czech, Dutch, French, German, Gujara
    ```bash
    ../../../python_embeded/python.exe -m pip install -r requirements.txt
    ```
+## Model Credit
+
+Based on [tencent/HY-MT1.5-1.8B-FP8](https://huggingface.co/tencent/HY-MT1.5-1.8B-FP8).
 
 ## Usage
 
@@ -34,10 +38,6 @@ English, Arabic, Bengali, Burmese, Chinese, Czech, Dutch, French, German, Gujara
    - `target_language`: Select the destination language from the dropdown.
 3. **Outputs**:
    - `translated_text`: The resulting translated string.
-
-## Model Credit
-
-Based on [tencent/HY-MT1.5-1.8B-FP8](https://huggingface.co/tencent/HY-MT1.5-1.8B-FP8).
 
 Support me on PayPal
 --------------------
